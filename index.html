@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        <div ng-bind="name"></div>
+        <script type="text/javascript">
+            var app = angular.module('myApp', []);
+            app.controller('myController', function($scope) {
+                $scope.name = "soumya";
+                
+                $scope.setName = (function(val) {
+                    $scope.name = val;console.log($scope.name);
+                    if(!$scope.$$phase) {
+                        $scope.$apply();    
+                    }
+                });
+                
+                
+            });
+        </script>
+    </body>
+</html>

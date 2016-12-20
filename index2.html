@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="refresh" content="3" >
+        <script type="text/javascript" src="angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        
+        <input type="text" ng-disabled="onOff()" name="" ng-value="onOff()"/>
+        <input type="text" name="" ng-model="name"/>
+        <div>Entered name is: {{name}}</div>
+        <script type="text/javascript">
+            var app = angular.module('myApp', []);
+            app.controller('myController', function($scope, $interval) {console.log("controller hitted");
+                
+                $scope.onOffFlag = 1;
+                // $interval(function(){
+                //     if($scope.onOffFlag%2) {
+                //         $scope.onOffFlag -= 1;
+                //     } else {
+                //         $scope.onOffFlag += 1;
+                //     }
+                // }, 1000);
+                $scope.onOff = (function() {
+                    console.log($scope.onOffFlag);
+                    return $scope.onOffFlag;    
+                });
+                
+            });
+        </script>
+    </body>
+</html>
